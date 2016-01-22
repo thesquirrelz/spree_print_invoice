@@ -6,7 +6,7 @@ require 'spree_print_invoice/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_print_invoice'
+  s.name        = 'solidus_print_invoice'
   s.version     = SpreePrintInvoice.version
   s.summary     = 'Print invoices and slips from Spree Commerce'
   s.description = s.summary
@@ -22,8 +22,13 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_runtime_dependency 'prawn-rails', '~> 0.1.1'
-  s.add_runtime_dependency 'spree_core', '~> 3.1.0.beta'
+  solidus_version = [">= 1.1.0.alpha", "< 2"]
+
+  #s.add_runtime_dependency 'prawn-rails', '~> 0.1.1'
+  s.add_runtime_dependency 'prawn', '~> 1.0.0'
+  s.add_dependency "solidus_api", solidus_version
+  s.add_dependency "solidus_backend", solidus_version
+  s.add_dependency "solidus_core", solidus_version
 
   s.add_development_dependency 'capybara', '~> 2.4.4'
   s.add_development_dependency 'poltergeist', '~> 1.5'
